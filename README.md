@@ -1,5 +1,5 @@
 # Algorithm
-The foundation of computer programs.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The foundation of computer programs.<br><br>
 ![](http://bpic.588ku.com/element_origin_min_pic/16/09/22/1957e3c3e2a4280.jpg)
 <h2>Array的添加与删除</h2>
 <ul>
@@ -54,7 +54,7 @@ The foundation of computer programs.<br>
   </li>
   <li>
     <h4>split(separator,howmany)：将一个字符串分割成字符串数组 </h4>
-    var b = "1|2|3|4|5"; <br/>
+    var b = "1|2|3|4|5"; <br/>
     var a = b.split("|");&nbsp;&nbsp; //a：[1,2,3,4,5] &nbsp;&nbsp;  b："1|2|3|4|5"
   </li>
   <li>
@@ -83,3 +83,37 @@ The foundation of computer programs.<br>
     a.sort(function(n,m){return n-m;}); &nbsp;&nbsp; //a：[1,2,3,4,5] 
   </li>
 </ul>
+
+<h2>Caesars Cipher</h2>
+
+    /*
+    写一个ROT13函数，实现输入加密字符串，输出解密字符串。
+    字母会移位13个位置。由'A' ↔ 'N', 'B' ↔ 'O'，以此类推
+    所有的字母都是大写，不要转化任何非字母形式的字符(例如：空格，标点符号)，遇到这些特殊字符，跳过它们。
+    */
+    function rot13(str) {
+        var arr = [];
+        for(var i=0;i<str.length;i++){
+            arr.push(str.charCodeAt(i));
+        }
+        function myMap(val) {
+            if(val >= 65 && val <= 77){
+                return val +13;
+            }
+            if(val > 77 && val <= 90){
+                return val-13;
+            }
+            return val;
+        }
+        var newArr = arr.map(myMap);
+        var newStr = '';
+        for(var j=0;j<newArr.length; j++){
+            newStr += String.fromCharCode(newArr[j]);
+        }
+        return newStr;
+    }
+    rot13("SERR PBQR PNZC");    // 应该解码为 "FREE CODE CAMP"
+    rot13("SERR CVMMN!");   // 应该解码为 "FREE PIZZA!"
+    rot13("SERR YBIR?");    // 应该解码为 "FREE LOVE?"
+    rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.");     // 应该解码为 "THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX."
+
