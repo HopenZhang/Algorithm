@@ -1,7 +1,7 @@
 # Algorithm
-The foundation of computer programs.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The foundation of computer programs.<br><br>
 ![](http://bpic.588ku.com/element_origin_min_pic/16/09/22/1957e3c3e2a4280.jpg)
-<h2>Array的添加和删除</h2>
+<h2>Array的添加与删除</h2>
 <ul>
   <li>
     <h4>shift：删除原数组第一项，并返回删除元素的值；如果数组为空则返回undefined</h4>
@@ -25,7 +25,7 @@ The foundation of computer programs.<br>
     var b = a.push(6,7); &nbsp;&nbsp; //a：[1,2,3,4,5,6,7] &nbsp;&nbsp;  b：7 
   </li>
   <li>
-    <h4>concat：返回一个新数组，是将参数添加到原数组中构成的 </h4>
+    <h4>concat：返回一个新数组，将参数添加到原数组中构成新数组 </h4>
     var a = [1,2,3,4,5]; <br/>
     var b = a.concat(6,7); &nbsp;&nbsp; //a：[1,2,3,4,5] &nbsp;&nbsp;  b：[1,2,3,4,5,6,7]  
   </li>
@@ -39,24 +39,82 @@ The foundation of computer programs.<br>
     a.splice(a.length,0,6,7); &nbsp;&nbsp; var b = a.length; &nbsp;&nbsp; //同push 
   </li>
   <li>
-    <h4>reverse：将数组反序 </h4>
-    var a = [1,2,3,4,5]; <br/>
-    var b = a.reverse();&nbsp;&nbsp; //a：[5,4,3,2,1] &nbsp;&nbsp;  b：[5,4,3,2,1]  
-  </li>
-  <li>
-    <h4>sort(orderfunction)：按指定的参数对数组进行排序 </h4>
-    var a = [1,2,3,4,5]; <br/>
-    var b = a.sort();&nbsp;&nbsp; //a：[1,2,3,4,5] &nbsp;&nbsp;  b：[1,2,3,4,5] 
-  </li>
-  <li>
     <h4>slice(start,end)：返回从原数组中指定开始下标到结束下标之间的项组成的新数组 </h4>
     var a = [1,2,3,4,5]; <br/>
     var b = a.slice(2,5);&nbsp;&nbsp; //a：[1,2,3,4,5] &nbsp;&nbsp;  b：[3,4,5] 
   </li>
+</ul>
+&nbsp;&nbsp;&nbsp;&nbsp;[引用原文](http://www.cnblogs.com/gxlinhai/p/5233734.html)<br /> 
+<h2>Array的其他方法</h2>
+<ul>
   <li>
     <h4>join(separator)：将数组的元素组起一个字符串，以separator为分隔符，省略的话则用默认用逗号为分隔符 </h4>
     var a = [1,2,3,4,5]; <br/>
     var b = a.join("|");&nbsp;&nbsp; //a：[1,2,3,4,5] &nbsp;&nbsp;  b："1|2|3|4|5"
   </li>
+  <li>
+    <h4>split(separator,howmany)：将一个字符串分割成字符串数组 </h4>
+    var b = "1|2|3|4|5"; <br/>
+    var a = b.split("|");&nbsp;&nbsp; //a：[1,2,3,4,5] &nbsp;&nbsp;  b："1|2|3|4|5"
+  </li>
+  <li>
+    <h4>reverse：将数组反序 </h4>
+    var a = [1,2,3,4,5]; <br/>
+    var b = a.reverse();&nbsp;&nbsp; //a：[5,4,3,2,1] &nbsp;&nbsp;  b：[5,4,3,2,1]  
+  </li>
+  <li>
+    <h4>map(function)：迭代数组中的每一个元素，并根据回调函数来处理每一个元素，最后返回一个新数组</h4>
+    var a = [1,2,3,4,5];<br/>
+    var b = a.map(function(val){return val * 4;}); &nbsp;&nbsp; //a：[1,2,3,4,5] &nbsp;&nbsp;  b：[4,8,12,16,20]  
+  </li>
+  <li>
+    <h4>reduce(function)：用来迭代一个数组，并且把它累积到一个值中 </h4>
+    var a = [1,2,3,4,5];<br/>
+    var b = a.reduce(function(pre,cur){return pre+cur;}); &nbsp;&nbsp; //a：[1,2,3,4,5] &nbsp;&nbsp;  b：15 
+  </li>
+  <li>
+    <h4>filter(function)：用来迭代一个数组，并且按给出的条件过滤出符合的元素 </h4>
+    var a = [1,2,3,4,5];<br/>
+    var b = a.filter(function(val){return val==3;}); &nbsp;&nbsp; //a：[1,2,3,4,5] &nbsp;&nbsp;  b：[3] 
+  </li>
+  <li>
+    <h4>sort(function)：按字母顺序或数字顺序对数组中的元素进行排序 </h4>
+    var a = [4,2,1,5,3];<br/>
+    a.sort(function(n,m){return n-m;}); &nbsp;&nbsp; //a：[1,2,3,4,5] 
+  </li>
 </ul>
-&nbsp;&nbsp;&nbsp;&nbsp;[引用原文](http://www.cnblogs.com/gxlinhai/p/5233734.html)<br /> 
+
+<h2>Caesars Cipher</h2>
+
+    /*
+    ROT13函数，实现输入加密字符串，输出解密字符串。
+    字母会移位13个位置。由'A' ↔ 'N', 'B' ↔ 'O'，以此类推
+    所有的字母都是大写，遇到任何非字母形式的字符(例如：空格，标点符号)跳过。
+    */
+    function rot13(str) {
+        var arr = [];
+        for(var i=0;i<str.length;i++){
+            arr.push(str.charCodeAt(i));
+        }
+        function myMap(val) {
+            if(val >= 65 && val <= 77){
+                return val +13;
+            }
+            if(val > 77 && val <= 90){
+                return val-13;
+            }
+            return val;
+        }
+        var newArr = arr.map(myMap);
+        var newStr = '';
+        for(var j=0;j<newArr.length; j++){
+            newStr += String.fromCharCode(newArr[j]);
+        }
+        return newStr;
+    }
+    rot13("SERR PBQR PNZC");    // 应该解码为 "FREE CODE CAMP"
+    rot13("SERR CVMMN!");   // 应该解码为 "FREE PIZZA!"
+    rot13("SERR YBIR?");    // 应该解码为 "FREE LOVE?"
+    rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.");     // 应该解码为 "THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX."
+
+<h2>sort</h2>
