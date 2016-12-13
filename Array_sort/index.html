@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arrSort</title>
+</head>
+<body>
+
+<script>
+    //排序
+    (function () {
+        var arr1 = [6,85,9,43,2,36];
+        var arr2 = [5,93,66,7,24];
+        var arr3 = [66,45,88,6,39,1];
+
+        bubbleSort(arr1);   //冒泡排序
+        arrSort(arr2);      //sort排序
+        quickSort(arr3);    //快速排序
+
+        console.log(arr1);
+        console.log(arr2);
+        console.log(quickSort(arr3));
+
+
+        //冒泡排序
+        function bubbleSort(arr) {
+            for(var i = 0; i<arr.length-1;i++){
+                for(var j = i+1; j<arr.length;j++){
+                    var tempI = arr[i];
+                    var tempJ = arr[j];
+                    if(tempI > tempJ){
+                        arr[i] = tempJ;
+                        arr[j] = tempI;
+                    }
+                }
+            }
+        }
+
+        //sort排序
+        function arrSort(arr) {
+            return arr.sort(function (a,b) {
+                return a-b;
+            })
+        }
+
+        //快速排序
+        function quickSort(arr) {
+            if(arr.length <= 1) {return arr;}
+            var index = Math.floor(arr.length/2);
+            var cur = arr.splice(index,1);
+            var left = [];
+            var right = [];
+            for( var i=0;i<arr.length;i++){
+                cur > arr[i] ? left.push(arr[i]) : right.push(arr[i]);
+            }
+            return quickSort(left).concat([cur],quickSort(right));
+        }
+    })();
+</script>
+</body>
+</html>
