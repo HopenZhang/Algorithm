@@ -1,5 +1,6 @@
 # Algorithm
-The foundation of computer programs.
+The foundation of computer programs.<br>
+![](http://bpic.588ku.com/element_origin_min_pic/16/09/22/1957e3c3e2a4280.jpg)
 <h2>Array的添加和删除</h2>
 <ul>
   <li>
