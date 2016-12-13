@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ROT13</title>
+</head>
+<body>
+<script>
+    /*
+    写一个ROT13函数，实现输入加密字符串，输出解密字符串。
+    字母会移位13个位置。由'A' ↔ 'N', 'B' ↔ 'O'，以此类推
+    所有的字母都是大写，不要转化任何非字母形式的字符(例如：空格，标点符号)，遇到这些特殊字符，跳过它们。
+    */
+    function rot13(str) {
+        var arr = [];
+        for(var i=0;i<str.length;i++){
+            arr.push(str.charCodeAt(i));
+        }
+        function myMap(val) {
+            if(val >= 65 && val <= 77){
+                return val +13;
+            }
+            if(val > 77 && val <= 90){
+                return val-13;
+            }
+            return val;
+        }
+        var newArr = arr.map(myMap);
+        var newStr = '';
+        for(var j=0;j<newArr.length; j++){
+            newStr += String.fromCharCode(newArr[j]);
+        }
+        return newStr;
+    }
+
+    rot13("SERR PBQR PNZC");    // 应该解码为 "FREE CODE CAMP"
+    rot13("SERR CVMMN!");   // 应该解码为 "FREE PIZZA!"
+    rot13("SERR YBIR?");    // 应该解码为 "FREE LOVE?"
+    rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.");     // 应该解码为 "THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX."
+
+</script>
+</body>
+</html>

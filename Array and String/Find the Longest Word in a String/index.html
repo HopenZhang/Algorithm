@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find the Longest Word in a String</title>
+</head>
+<body>
+<script>
+    /*
+    找到提供的句子中最长的单词，并计算它的长度。
+    函数的返回值应该是一个数字。
+    */
+    function findLongestWord(str) {
+        var arr1 = str.split(' ');
+        var arr2 = [];
+        for(var i = 0; i<arr1.length;i++){
+            arr2.push(arr1[i].length);
+        }
+        arr2.sort(function (a,b) {
+            return b-a;
+        });
+        return arr2[0];
+    }
+    findLongestWord("What is the average airspeed velocity of an unladen swallow");     //应该返回 8.
+</script>
+</body>
+</html>

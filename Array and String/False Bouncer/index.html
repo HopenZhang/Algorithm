@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>False Bouncer</title>
+</head>
+<body>
+<script>
+    /*
+    删除数组中的所有假值。
+    在JavaScript中，假值有false、null、0、""、undefined 和 NaN。
+    */
+    function bouncer(arr) {
+        function isFalse(ele) {
+            if(ele){
+                return ele;
+            }
+        }
+        arr = arr.filter(isFalse);
+        return arr;
+    }
+
+    bouncer([7, "ate", "", false, 9]);  // 应该返回 [7, "ate", 9].
+    bouncer(["a", "b", "c"]);   // 应该返回 ["a", "b", "c"].
+    bouncer([false, null, 0, NaN, undefined, ""]);  // 应该返回 [].
+    bouncer([1, null, NaN, 2, undefined]);  // 应该返回 [1, 2].
+</script>
+</body>
+</html>

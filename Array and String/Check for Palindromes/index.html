@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check for Palindromes</title>
+</head>
+<body>
+<script>
+    /*
+    如果给定的字符串是回文，返回true，反之，返回false。
+    如果一个字符串忽略标点符号、大小写和空格，正着读和反着读一模一样，那么这个字符串就是palindrome(回文)。
+    */
+    function palindrome(str) {
+        //  /\w/g   \w 包含下划线
+
+        var arr1 = str.match(/[a-zA-Z0-9]/g);
+        var str1 = arr1.join('').toLowerCase();
+        var arr2 = arr1.reverse();
+        var str2 = arr2.join('').toLowerCase();
+        if(str1 === str2){
+            alert(true);
+        }else {
+            alert(false);
+        }
+    }
+    palindrome("A man, a plan, a canal. Panama");   // 应该返回 true.
+    palindrome("never odd or even");    // 应该返回 true.
+    palindrome("nope");     // 应该返回 false.
+    palindrome("almostomla");   // 应该返回 false.
+    palindrome("My age is 0, 0 si ega ym.");    // 应该返回 true.
+    palindrome("1 eye for of 1 eye.");  // 应该返回 false.
+    palindrome("0_0 (: /-\ :) 0-0");    // 应该返回 true.
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Repeat a string repeat a string</title>
+</head>
+<body>
+<script>
+    //重复一个指定的字符串 num次，如果num是一个负数则返回一个空字符串。
+
+    function repeat(str, num) {
+        var newStr;
+        newStr = str;
+        for( var i=0; i<num-1 ;i++){
+            str += newStr;
+        }
+        return str;
+    }
+    repeat("*", 3);     //应该返回 "***".
+    repeat("abc", 1);   //应该返回 "abc".
+    repeat("abc", -2);  //应该返回 "".
+</script>
+</body>
+</html>

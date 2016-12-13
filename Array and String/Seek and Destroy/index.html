@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seek and Destroy</title>
+</head>
+<body>
+<script>
+    //实现一个摧毁(destroyer)函数，第一个参数是待摧毁的数组，其余的参数是待摧毁的值。
+
+    function destroyer(arr) {
+        var n1 = arguments[1];
+        var n2 = arguments[2];
+        function myFilter(val) {
+            if(val !== n1 && val !== n2){
+                return val;
+            }
+        }
+        arr = arr.filter(myFilter);
+        return arr;
+    }
+
+    destroyer([1, 2, 3, 1, 2, 3], 2, 3);    // 应该返回 [1, 1].
+    destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3); // 应该返回 [1, 5, 1].
+    destroyer([3, 5, 1, 2, 2], 2, 3, 5);    // 应该返回 [1].
+    destroyer([2, 3, 2, 3], 2, 3);  // 应该返回 [].
+    destroyer(["tree", "hamburger", 53], "tree", 53);   // 应该返回 ["hamburger"].
+</script>
+</body>
+</html>

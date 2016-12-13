@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title Case a Sentence</title>
+</head>
+<body>
+<script>
+    //确保字符串的每个单词首字母都大写，其余部分小写。
+
+    function titleCase(str) {
+        var arr = str.split(' ');
+        var newArr = [];
+        for(var i=0;i<arr.length;i++){
+            newArr.push(arr[i].charAt(0).toUpperCase()+arr[i].substring(1,arr[i].length).toLowerCase());
+        }
+        return newArr.join(' ');
+    }
+
+    titleCase("I'm a little tea pot");  //应该返回 "I'm A Little Tea Pot".
+    titleCase("sHoRt AnD sToUt");   //应该返回 "Short And Stout".
+    titleCase("HERE IS MY HANDLE HERE IS MY SPOUT");    //应该返回 "Here Is My Handle Here Is My Spout".
+</script>
+</body>
+</html>

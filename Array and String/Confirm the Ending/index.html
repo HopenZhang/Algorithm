@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm the Ending</title>
+</head>
+<body>
+<script>
+    /*
+    检查一个字符串(str)是否以指定的字符串(target)结尾。
+    如果是，返回true;如果不是，返回false。
+    */
+    function confirmEnding(str, target) {
+        return str.substring(str.length - target.length, str.length) === target;
+    }
+    confirmEnding("Bastian", "n");  //应该返回 true.
+    confirmEnding("He has to give me a new name", "name");  //应该返回 true.
+</script>
+</body>
+</html>

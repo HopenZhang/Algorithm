@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Factorial</title>
+</head>
+<body>
+<script>
+    // 5! = 1 * 2 * 3 * 4 * 5 = 120
+    function factorialize(num) {
+        var arr = [];
+        for( var i = num; i > 0 ; i--){
+            arr.push(i);
+        }
+        num = arr.reduce(function (prev, cur) {
+            return prev * cur;
+        });
+        return num;
+    }
+    factorialize(10);   //应该返回 3628800.
+</script>
+</body>
+</html>
