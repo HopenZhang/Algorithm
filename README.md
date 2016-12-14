@@ -44,7 +44,7 @@
     var b = a.slice(2,5);&nbsp;&nbsp; //a：[1,2,3,4,5] &nbsp;&nbsp;  b：[3,4,5] 
   </li>
 </ul>
-&nbsp;&nbsp;&nbsp;&nbsp;[引用原文](http://www.cnblogs.com/gxlinhai/p/5233734.html)<br /> 
+
 <h2>Array的其他方法</h2>
 <ul>
   <li>
